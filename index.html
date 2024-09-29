@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Expense Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Group Expense Calculator</h1>
+
+        <!-- Add Participants Section -->
+        <div>
+            <h2>Add Participants</h2>
+            <form>
+                <label for="participantName">Enter participant's name</label>
+                <input type="text" id="participantName" placeholder="Enter Name">
+                <button type="button" onclick="addParticipant()">Add Participant</button>
+            </form>
+        </div>
+
+        <ul id="participantsList"></ul>
+
+        <!-- Add Expense Section -->
+        <div>
+            <h2>Add Expense</h2>
+            <form>
+                <label for="payer">Payer</label>
+                <select id="payer">
+                    <option value="" disabled selected>Select payer</option>
+                </select>
+                
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" placeholder="Enter Amount">
+                
+                <label for="description">Description</label>
+                <input type="text" id="description" placeholder="Enter Description">
+                
+                <button type="button" onclick="addExpense()">Add Expense</button>
+            </form>
+        </div>
+
+        <h2>Expense List</h2>
+        <table id="expenseTable">
+            <thead>
+                <tr>
+                    <th>Payer</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Each Share</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="expenseList"></tbody>
+        </table>
+
+        <!-- Buttons for Settlements and Calculations -->
+        <div style="text-align: center;">
+            <button id="paymentPlanButton" onclick="showPaymentPlan()">Who Needs to Pay Who?</button>
+            <button id="showCalculationButton" onclick="showCalculation()">Show Calculation</button>
+        </div>
+
+        <h2>Settlements</h2>
+        <div id="settlementDiv"></div>
+
+        <!-- Calculations Div -->
+        <div id="calculationDetails"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
